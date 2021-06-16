@@ -3,6 +3,7 @@
 #include <sstream>
 #include "block.h"
 #include "sha256.h"
+#include <openssl/sha.h>
 
 Block::Block(uint32_t IndexIn, const string &DataIn) : Index(IndexIn), Data(DataIn) {
   Nonce = -1;
@@ -33,5 +34,10 @@ void Block::MineBlock(uint32_t Difficulty) {
 string Block::CalculateHash() const {
   stringstream ss;
   ss << Index << Time << Data << Nonce << PrevHash;
+
+  // const unsigned char* temp = ss.str().c_str();
+  // unsigned char hash[SHA256_DIGEST_LENGTH];
+  // SHA256(temp, sizeof(temp), hash);
+
   return sha256(ss.str());
 }
