@@ -3,7 +3,8 @@
 Hello! This is my way of trying to learn how blockchains and cryptocurrencies work.
 
 Works Cited
-(tko22)[https://github.com/tko22/simple-blockchain]
+
+[tko22](https://github.com/tko22/simple-blockchain)
 
 ### Ideas for expanding on this
 
