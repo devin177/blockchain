@@ -2,9 +2,10 @@
 
 Hello! This is my way of trying to learn how blockchains and cryptocurrencies work.
 
-Works Cited
+## Works Cited
 
 [tko22](https://github.com/tko22/simple-blockchain)
+[Dave Nash](https://davenash.com/2017/10/build-a-blockchain-with-c/)
 
 ### Ideas for expanding on this
 
