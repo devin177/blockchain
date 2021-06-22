@@ -13,14 +13,19 @@ class Blockchain {
  public:
   Blockchain();
 
-  void AddBlock(Block New);
+  Block GetBlock(int index);
 
- private:
-  uint32_t Difficulty;
-  vector<unique_ptr<Block>> BChain;
-  vector<Block> Chain;
+  void AddBlock(int index, string prevhash,
+    vector<Transaction> tx, uint32_t time, uint32_t nbits, uint32_t nonce);
 
   Block GetLastBlock() const;
+ private:
+  vector<unique_ptr<Block>> BChain;
 };
+
+void Blockchain::AddBlock(int index, string prevhash,
+  vector<Transaction> tx, uint32_t time, uint32_t nbits, uint32_t nonce) {
+  
+}
 
 #endif
