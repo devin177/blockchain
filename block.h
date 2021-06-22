@@ -9,7 +9,7 @@ using namespace std;
 
 class Block {
  public:
-  string PrevHash;
+  const char* PrevHash[32];
 
   Block (uint32_t IndexIn, const string &DataIn);
 
@@ -26,7 +26,5 @@ class Block {
 
   string CalculateHash() const;
 };
-
-
 
 #endif

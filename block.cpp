@@ -2,7 +2,6 @@
 #include <string>
 #include <sstream>
 #include "block.h"
-#include "sha256.h"
 #include <openssl/sha.h>
 
 Block::Block(uint32_t IndexIn, const string &DataIn) : Index(IndexIn), Data(DataIn) {
@@ -39,5 +38,6 @@ string Block::CalculateHash() const {
   // unsigned char hash[SHA256_DIGEST_LENGTH];
   // SHA256(temp, sizeof(temp), hash);
 
-  return sha256(ss.str());
+  //return sha256(ss.str());
+  return "";
 }
