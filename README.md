@@ -2,18 +2,12 @@
 
 Hello! This is my way of trying to learn how blockchains and cryptocurrencies work.
 
-## Works Cited
+As of 6/22/2021, what this program allows you to do is simulate creating the genesis block for an unnamed cryptocurrency. Clone it if you want to test it out.
 
-[tko22](https://github.com/tko22/simple-blockchain)
-[Dave Nash](https://davenash.com/2017/10/build-a-blockchain-with-c/)
+- Compile with "make"
+- Run with "./bc"
+- Delete with "make clean"
 
-### Ideas for expanding on this
-
-1. Build a fleshed-out POW Coin
-
-2. Build a POS Coin
-
-3. Use blockchain to vote? Secure because votes are immutable
 
 ### Update 6/22/2021
 
@@ -27,3 +21,16 @@ Hello! This is my way of trying to learn how blockchains and cryptocurrencies wo
 3. Change the way the blockchain is actually stored/learn how to write and format the ".dat" files that bitcoin seems to use
 
 4. Multiple Nodes/conflicting blockchains/etc. problems
+
+### Ideas for expanding on this
+
+1. Build a fleshed-out POW Coin
+
+2. Build a POS Coin
+
+3. Use blockchain to vote? Secure because votes are immutable
+
+## Works Cited
+
+[tko22](https://github.com/tko22/simple-blockchain)
+[Dave Nash](https://davenash.com/2017/10/build-a-blockchain-with-c/)
