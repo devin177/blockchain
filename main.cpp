@@ -1,8 +1,10 @@
 #include "blockchain.h"
-#include <openssl/sha.h>
 
 int main () {
-  Blockchain bChain = Blockchain();
-
+  Blockchain bchain = Blockchain();
+  /*cout << bchain.GetLastBlock().GetIndex() << endl;
+  cout << bchain.GetLastBlock().GetPrevHash() << endl;
+  cout << bchain.GetLastBlock().GetTime() << endl;
+  cout << bchain.GetLastBlock().GetHeader() << endl;*/
   return 0;
 }
