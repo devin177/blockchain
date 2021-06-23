@@ -1,4 +1,4 @@
 bc:
-	g++ -std=c++11 main.cpp block.cpp blockchain.cpp sha256.cpp -lcrypto -o bc
+	g++ -std=c++14 main.cpp -Wall -Werror -o bc
 clean:
 	rm -f bc
