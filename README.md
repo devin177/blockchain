@@ -1,4 +1,5 @@
 # blockchain
+Copyright &copy; 2021 devin177
 
 Hello! This is my way of trying to learn how blockchains and cryptocurrencies work.
 
