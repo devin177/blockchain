@@ -6,8 +6,8 @@ using namespace std;
 
 class Transaction {
  public:
-  string TXHash;
   Transaction();
+  string TXHash;
   /* no partial spending?
   * Add up your incoming tx - outgoing tx for balance
   * For partials, send some?
