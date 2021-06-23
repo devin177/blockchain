@@ -36,6 +36,8 @@ class Block {
   // Return the index
   int GetIndex() {return Index;}
 
+  int GetTime() {return Time;}
+
   // Return the list of transactions for this block
   vector<Transaction> GetTransactions() {return TX;}
  private:
