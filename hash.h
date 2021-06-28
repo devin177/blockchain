@@ -22,7 +22,7 @@ int ProofOfWork(int index, string prevhash,
   for (; nonce < UINT32_MAX; ++nonce) {
     header = to_string(index) + prevhash + (time) + to_string(nbits) + to_string(nonce);
     picosha2::hash256_hex_string(header, hashed_header);
-    if (hashed_header.substr(0,2) == threshold.str()) {
+    if (hashed_header.substr(0,nbits) == threshold.str()) {
       break;
     }
   }

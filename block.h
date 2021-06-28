@@ -57,7 +57,7 @@ class Block {
 
 string Block::GetHeader() {
   stringstream ss;
-  ss << Index << PrevHash /*<< TX*/ << Time << nBits << Nonce << endl;
+  ss << Index << PrevHash /*<< TX*/ << Time << nBits << Nonce;
   return ss.str();
 }
 #endif

@@ -49,7 +49,7 @@ Blockchain::Blockchain() {
   string prevhash;
   picosha2::hash256_hex_string(string("0"), prevhash);
   time_t time = std::time(nullptr);
-  int nonce = ProofOfWork(0, prevhash, tx, (to_string(time)), 2); 
+  int nonce = ProofOfWork(0, prevhash, tx, (to_string(time)), 4); 
   cout << nonce << endl;
   BChain.push_back(make_unique<Block>(0, prevhash, tx, stoi(to_string(time)), 2, nonce));
 }

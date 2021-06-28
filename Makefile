@@ -1,4 +1,4 @@
-bc:
-	g++ -std=c++14 main.cpp -Wall -Werror -o bc
+node:
+	g++ -std=c++14 node.cpp -Wall -Werror -o node
 clean:
-	rm -f bc
+	rm -f node
