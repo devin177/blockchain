@@ -1,11 +1,20 @@
+#include <iostream>
+#include <string>
 #include "blockchain.h"
+
+using namespace std;
 
 int main () {
   Blockchain bchain = Blockchain();
-  cout << bchain.GetLastBlock().GetIndex() << endl;
-  cout << bchain.GetLastBlock().GetPrevHash() << endl;
-  cout << bchain.GetLastBlock().GetTime() << endl;
-  cout << bchain.GetLastBlock().GetHeader() << endl;
+  cout << bchain.GetSize() << endl;
+  
+  string line_buffer;
+  while (getline(cin, line_buffer)) {
+    if (!line_buffer.compare("addblock")) {
+      bchain.AddBlock(bchain.GetLastHash(), bchain.GetLastBlock().GetTransactions());
+      cout << bchain.GetSize() << endl;
+    }
+  }
   return 0;
 }
 

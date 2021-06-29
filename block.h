@@ -6,6 +6,7 @@
 #include <string>
 #include <sstream>
 #include "transaction.h"
+#include "PicoSHA2/picosha2.h"
 
 /* The header for my blockchain will consist of
   * Index
@@ -33,6 +34,9 @@ class Block {
   // return the hash of previous block header
   string GetPrevHash() {return PrevHash;}
 
+  // Return the hash of this current block
+  string GetHash();
+
   // Return the index
   int GetIndex() {return Index;}
 
@@ -59,5 +63,11 @@ string Block::GetHeader() {
   stringstream ss;
   ss << Index << PrevHash /*<< TX*/ << Time << nBits << Nonce;
   return ss.str();
+}
+
+string Block::GetHash() {
+  string hashed_header;
+  picosha2::hash256_hex_string(GetHeader(), hashed_header);
+  return hashed_header;
 }
 #endif
