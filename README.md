@@ -6,10 +6,10 @@ Hello! This is my way of trying to learn how blockchains and cryptocurrencies wo
 ### Update 6/28/2021
 As of 6/28/2021, you can now add blocks to your in RAM blockchain. Clone it and turn these commands to try it out.
 
-- Compile with "make"
-- Run with "./node"
+- Compile with `make`
+- Run with `./node`
   - I changed the naming
-- Add a block to the chain using "addblock" when the program is running.
+- Add a block to the chain using `addblock` when the program is running.
 - CTRL-C when finished
 - Delete with make clean
 
