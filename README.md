@@ -3,6 +3,9 @@ Copyright &copy; 2021 devin177
 
 Hello! This is my way of trying to learn how blockchains and cryptocurrencies work.
 
+### Update 7/1/2021
+Making this actually secure is going to be almost impossible LOL.
+
 ### Update 6/28/2021
 As of 6/28/2021, you can now add blocks to your in RAM blockchain. Clone it and turn these commands to try it out.
 
