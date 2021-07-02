@@ -24,6 +24,7 @@ class TxOut {
   // implied index from location in vector
   int64_t Amount;
   // Conditional pubkey script
+  // For now, I will just put a address that I will check is the same
 };
 
 class Transaction {
