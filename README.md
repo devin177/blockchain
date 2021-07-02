@@ -4,7 +4,14 @@ Copyright &copy; 2021 devin177
 Hello! This is my way of trying to learn how blockchains and cryptocurrencies work.
 
 ### Update 7/1/2021
-Making this actually secure is going to be almost impossible LOL.
+As of 7/1/2021, I have turned off the `addblock` functionality for the moment. I spent today learning how the creation of Private keys and a lot of the hashing worked for addresses. I am learning this so I can add transactions to the table.
+
+Here's what you CAN do.
+
+- Compile with `make`
+- Run with `./node`
+  - This will generate a Genesis block and hash, as well as 1 private key for a potential wallet.
+- Delete with `make clean`
 
 ### Update 6/28/2021
 As of 6/28/2021, you can now add blocks to your in RAM blockchain. Clone it and turn these commands to try it out.
@@ -14,7 +21,7 @@ As of 6/28/2021, you can now add blocks to your in RAM blockchain. Clone it and 
   - I changed the naming
 - Add a block to the chain using `addblock` when the program is running.
 - CTRL-C when finished
-- Delete with make clean
+- Delete with `make clean`
 
 Notes to Self for the Future
 - Transactions are also stored on disk like the blockchain. Will have to look into writing both these things to disk.
