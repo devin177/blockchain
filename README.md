@@ -57,3 +57,4 @@ As of 6/22/2021, what this program allows you to do is simulate creating the gen
 
 [tko22](https://github.com/tko22/simple-blockchain)
 [Dave Nash](https://davenash.com/2017/10/build-a-blockchain-with-c/)
+[Nick Farrow](https://nickfarrow.com/Cryptography-in-Bitcoin-with-C/)
