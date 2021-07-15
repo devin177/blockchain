@@ -1,9 +1,12 @@
 #ifndef WALLET_H
 #define WALLET_H
 
+#include <fcntl.h>
+#include <stdlib.h>
 #include <string>
 #include <stdio.h>
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -30,6 +33,12 @@ void GeneratePrivKey() {
     printf("%02X", seckey[i]);
   }
   printf("\n");
+
+  // Don't print, write to file
+  int fd;
+  char* WalletFile = "wallet.dat";
+  fd = open("wallet.dat", O_RDONLY);
+
 }
 
 #endif
