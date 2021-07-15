@@ -3,6 +3,10 @@ Copyright &copy; 2021 devin177
 
 Hello! This is my way of trying to learn how blockchains and cryptocurrencies work.
 
+### Update 7/14/2021
+
+As of 7/14/2021, I have placed the private key generation code in a separate header. Not a lot of work done these past 2 weeks. 
+
 ### Update 7/1/2021
 As of 7/1/2021, I have turned off the `addblock` functionality for the moment. I spent today learning how the creation of Private keys and a lot of the hashing worked for addresses. I am learning this so I can add transactions to the table.
 
