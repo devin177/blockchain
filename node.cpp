@@ -16,6 +16,8 @@ int main () {
     if (!line_buffer.compare("addblock")) {
       bchain.AddBlock(bchain.GetLastHash(), bchain.GetLastBlock().GetTransactions());
       cout << bchain.GetSize() << endl;
+    } else {
+      break;
     }
   }
 
