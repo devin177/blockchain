@@ -3,6 +3,11 @@ Copyright &copy; 2021 devin177
 
 Hello! This is my way of trying to learn how blockchains and cryptocurrencies work.
 
+## Update 7/27/2021
+- Need to install secp256k1 from the folder to work?
+- Also need libsecp256k1-0 installed (I did `sudo apt-get install libsecp256k1-0
+`)
+
 ### Update 7/14/2021
 
 As of 7/14/2021, I have placed the private key generation code in a separate header. Not a lot of work done these past 2 weeks. 
