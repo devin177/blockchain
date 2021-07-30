@@ -2,6 +2,14 @@
 Copyright &copy; 2021 devin177
 
 Hello! This is my way of trying to learn how blockchains and cryptocurrencies work.
+## Update 7/29/2021
+Big changes today! Finally understand how all the Priv/Pub keys are generated, as well as how they are hashed into wallet addresses.
+
+As of 7/29/2021, you can finally create a wallet address!
+- Compile with `make`
+- Run with `./node`
+- `addblock` to add a block (this is from last time)
+- `generateaddress` to generate a wallet address along with the step by step
 
 ## Update 7/27/2021
 - Need to install secp256k1 from the folder to work?
@@ -68,3 +76,4 @@ As of 6/22/2021, what this program allows you to do is simulate creating the gen
 [Dave Nash](https://davenash.com/2017/10/build-a-blockchain-with-c/)\
 [Nick Farrow](https://nickfarrow.com/Cryptography-in-Bitcoin-with-C/)\
 [bitcoinbook](https://cypherpunks-core.github.io/bitcoinbook/)\
+[ProgrammerSought/Bitcoin0.16](https://www.programmersought.com/article/19961775751/)\
