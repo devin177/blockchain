@@ -12,16 +12,20 @@ int main () {
   cout << bchain.GetSize() << endl;
   
   string line_buffer;
+  cout << ">";
   while (getline(cin, line_buffer)) {
     if (!line_buffer.compare("addblock")) {
       bchain.AddBlock(bchain.GetLastHash(), bchain.GetLastBlock().GetTransactions());
       cout << bchain.GetSize() << endl;
+    } else if (!line_buffer.compare("generateaddress")) {
+      GenerateAddress();
     } else {
+      cout << "Closing program" << endl;
       break;
     }
+    cout << ">";
   }
 
-  GeneratePrivKey();
   return 0;
 }
 
