@@ -16,11 +16,11 @@ As of 7/29/2021, you can finally create a wallet address!
 - Also need libsecp256k1-0 installed (I did `sudo apt-get install libsecp256k1-0
 `)
 
-### Update 7/14/2021
+## Update 7/14/2021
 
 As of 7/14/2021, I have placed the private key generation code in a separate header. Not a lot of work done these past 2 weeks. 
 
-### Update 7/1/2021
+## Update 7/1/2021
 As of 7/1/2021, I have turned off the `addblock` functionality for the moment. I spent today learning how the creation of Private keys and a lot of the hashing worked for addresses. I am learning this so I can add transactions to the table.
 
 Here's what you CAN do.
@@ -30,7 +30,7 @@ Here's what you CAN do.
   - This will generate a Genesis block and hash, as well as 1 private key for a potential wallet.
 - Delete with `make clean`
 
-### Update 6/28/2021
+## Update 6/28/2021
 As of 6/28/2021, you can now add blocks to your in RAM blockchain. Clone it and turn these commands to try it out.
 
 - Compile with `make`
@@ -44,7 +44,7 @@ Notes to Self for the Future
 - Transactions are also stored on disk like the blockchain. Will have to look into writing both these things to disk.
 - Read something online about serializing the transactions?  into a stream when you send it online? I'm going to have to look into this
 
-### Update 6/22/2021
+## Update 6/22/2021
 As of 6/22/2021, what this program allows you to do is simulate creating the genesis block for an unnamed cryptocurrency. Clone it if you want to test it out.
 
 - Compile with "make"
@@ -62,7 +62,7 @@ As of 6/22/2021, what this program allows you to do is simulate creating the gen
 
 4. Multiple Nodes/conflicting blockchains/etc. problems
 
-### Ideas for expanding on this
+## Ideas for expanding on this
 
 1. Build a fleshed-out POW Coin
 
