@@ -17,8 +17,8 @@ int main () {
     if (!line_buffer.compare("addblock")) {
       bchain.AddBlock(bchain.GetLastHash(), bchain.GetLastBlock().GetTransactions());
       cout << bchain.GetSize() << endl;
-    } else if (!line_buffer.compare("generateaddress")) {
-      GenerateAddress();
+    } else if (!line_buffer.compare("generatewallet")) {
+      GenerateWalletFile();
     } else {
       cout << "Closing program" << endl;
       break;
