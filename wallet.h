@@ -27,28 +27,31 @@ class Wallet {
   Wallet() = default;
 };
 
-void GenerateAddress() {
+/*Create and write into a new file: "wallet.dat"
+  This will delete a previous wallet.dat
+  Writes a new private key and wallet address
+*/
+void GenerateWalletFile() {
   ctx = secp256k1_context_create(
 	SECP256K1_CONTEXT_SIGN | SECP256K1_CONTEXT_VERIFY);
+
+  // wallet.dat apparently not encrypted by default
+  FILE* wallet_file;
+  wallet_file = fopen("wallet.dat", "w");
 
   // Private keys are 256 bits = 32 bytes
   unsigned char privkey[32];
 
   /* Load private key (seckey) from random bytes */
   FILE *frand = fopen("/dev/urandom", "r");
-
-  /* Read 32 bytes from frand */
   fread(privkey, 32, 1, frand);
-
-  /* Close the file */
   fclose(frand);
 
   /* Loop through and print each byte of the private key, */
-  printf("Private Key: ");
   for(int i=0; i<32; i++) {
-    printf("%02X", privkey[i]);
+    fprintf(wallet_file, "%02X", privkey[i]);
   }
-  printf("\n");
+  fprintf(wallet_file, "\n");
 
   if (!secp256k1_ec_seckey_verify(ctx, privkey)) {
 	  printf("Invalid secret key\n");
@@ -78,16 +81,7 @@ void GenerateAddress() {
     SECP256K1_EC_UNCOMPRESSED
     );
 
-  // Print public key ~ 65 bytes, but in hex-2byte
-  cout << "Public Key: ";
-    for(int i=0; i<65; i++) {
-      printf("%02X", pk_bytes[i]);
-    }
-  cout << endl;
-
   // Turn public key(in bytes) to bitcoin address
-  // char pubaddress[34];
-
   byte dupe_pubkey[65];
   // RipeMD hash will be 20, 1 for version byte, 4 for checksum
   byte rmd[5 + RIPEMD160_DIGEST_LENGTH];
@@ -104,25 +98,19 @@ void GenerateAddress() {
   rmd[0] = 0;
   RIPEMD160(SHA256(dupe_pubkey, 65, 0), SHA256_DIGEST_LENGTH, rmd + 1);
 
-  cout << "Version + RIPEMD-160 Hash of Public Key: ";
-    for(int i=0; i<21; i++) {
-      printf("%02X", rmd[i]);
-    }
-  cout << endl;
-
   // 4. Create checksum by SHA256 hashing the VERSION_BYTE+RIPEMD_HASH
   // 4.5. Append the first 4 bytes of doublehash to the end of original RIPEMD
   memcpy(rmd + 21, SHA256(SHA256(rmd, 21, 0), SHA256_DIGEST_LENGTH, 0), 4);
 
-  cout << "Address in Hex: ";
-    for(int i=0; i<25; i++) {
-      printf("%02X", rmd[i]);
-    }
-  cout << endl;
-
   // 5. Convert from bytes to base 58 string
   string address = EncodeBase58(rmd, rmd+25);
-  cout << "Base58 Encoded Address: " << address << endl;
+  const char* address_buff = address.c_str();
+  fprintf(wallet_file, "%s\n", address_buff);
+  fclose(wallet_file);
 }
 
+// Parse through the blockchain and update your wallet
+void UpdateWallet() {
+  ;
+}
 #endif
