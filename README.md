@@ -2,6 +2,15 @@
 Copyright &copy; 2021 devin177
 
 Hello! This is my way of trying to learn how blockchains and cryptocurrencies work.
+## 8/2/2021
+Wallet function now writes to a wallet.dat file.
+
+- Compile with `make`
+- Run with `./node`
+- `addblock` to add a block (this is from last time)
+- `generatewallet` to generate a wallet file
+  - The convention for this is in WALLET.md
+
 ## Update 7/29/2021
 Big changes today! Finally understand how all the Priv/Pub keys are generated, as well as how they are hashed into wallet addresses.
 
