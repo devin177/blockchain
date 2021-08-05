@@ -8,6 +8,7 @@
 #include <ctime>
 #include "block.h"
 #include "hash.h"
+#include "transaction.h"
 
 using namespace std;
 
@@ -29,9 +30,13 @@ class Blockchain {
   Block GetLastBlock() const {return *(BChain[BChain.size()-1]);}
 
   string GetLastHash() const {return GetLastBlock().GetHash();}
+
+  // Create a coinbase transaction, and give it to the account that mined
+  void CoinbaseTx();
  private:
   vector<unique_ptr<Block>> BChain;
   uint32_t nbits;
+  vector<Transaction> newTx;
 };
 
 void Blockchain::AddBlock(string prevhash, vector<Transaction> tx) {
@@ -52,12 +57,20 @@ void Blockchain::AddBlock(string prevhash, vector<Transaction> tx) {
 
 Blockchain::Blockchain() {
   nbits = 2;
+
   vector<Transaction> tx;
+  // tx.push_back(Transaction(address));
+
+  // Hash "0" because this is the start of the chain
   string prevhash;
   picosha2::hash256_hex_string(string("0"), prevhash);
   time_t time = std::time(nullptr);
   int nonce = ProofOfWork(0, prevhash, tx, (to_string(time)), nbits); 
   cout << nonce << endl;
   BChain.push_back(make_unique<Block>(0, prevhash, tx, stoi(to_string(time)), 2, nonce));
+}
+
+void Blockchain::CoinbaseTx() {
+
 }
 #endif
