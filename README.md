@@ -86,3 +86,4 @@ As of 6/22/2021, what this program allows you to do is simulate creating the gen
 [Nick Farrow](https://nickfarrow.com/Cryptography-in-Bitcoin-with-C/)\
 [bitcoinbook](https://cypherpunks-core.github.io/bitcoinbook/)\
 [ProgrammerSought/Bitcoin0.16](https://www.programmersought.com/article/19961775751/)\
+[StackOverflow Hex Function](https://stackoverflow.com/questions/3381614/c-convert-string-to-hexadecimal-and-vice-versa)
