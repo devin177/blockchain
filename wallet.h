@@ -117,6 +117,7 @@ void UpdateWallet() {
 
 // Given a seeded private key, find its public address
 void HashPrivSeed(string privkey){
+  // Turn 64 bit string to 32 bit privkey, then do the hashing
   byte seed[32];
   string string_val = hex_to_string(privkey);
   for (int i = 0; i < 32; ++i) {
