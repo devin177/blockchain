@@ -2,6 +2,17 @@
 Copyright &copy; 2021 devin177
 
 Hello! This is my way of trying to learn how blockchains and cryptocurrencies work.
+
+## 8/5/2021
+You can now verify your private key.
+
+- Compile with `make`
+- Run with `./node`
+- `addblock` to add a block (this is from last time)
+- `generatewallet` to generate a wallet file
+  - The convention for this is in WALLET.md
+- `hashseed <even-number-of-chars-seed>` will generate the public key from that seed.
+
 ## 8/2/2021
 Wallet function now writes to a wallet.dat file.
 
