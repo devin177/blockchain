@@ -26,8 +26,6 @@ int ProofOfWork(int index, string prevhash,
       break;
     }
   }
-  
-  cout << hashed_header << endl;
   return nonce;
 }
 #endif
