@@ -10,7 +10,6 @@ using namespace std;
 
 int main () {
   Blockchain bchain = Blockchain();
-  cout << bchain.GetSize() << endl;
   
   string line_buffer;
   string cmd_buff;
@@ -19,8 +18,7 @@ int main () {
     stringstream line_stream(line_buffer);
     line_stream >> cmd_buff;
     if (!cmd_buff.compare("addblock")) {
-      bchain.AddBlock(bchain.GetLastHash(), bchain.GetLastBlock().GetTransactions());
-      cout << bchain.GetSize() << endl;
+      bchain.AddBlock(bchain.GetLastHash());
     } else if (!cmd_buff.compare("generatewallet")) {
       GenerateWalletFile();
     } else if (!cmd_buff.compare("hashseed")){
