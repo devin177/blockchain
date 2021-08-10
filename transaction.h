@@ -34,6 +34,7 @@ class TxOut {
   string Address;
   void spend() {Spent = true;}
  private:
+ // This should be some kind of dirty bit on the block.dat file
   bool Spent = false;
 };
 
