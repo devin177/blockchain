@@ -3,6 +3,11 @@ Copyright &copy; 2021 devin177
 
 Hello! This is my way of trying to learn how blockchains and cryptocurrencies work.
 
+## 8/10/2021
+
+
+I have been thinking about the complexity of creating such a project from scratch with such limited knowledge about file transfer and what not. I think the most reasonable and doable course of action is to begin with this not being a peer to peer program, but with a central node in the beginning. So, a client-server structure. This is, of course, thinking for after I finish even the basic functionality part.
+
 ## 8/5/2021
 You can now verify your private key.
 
@@ -97,4 +102,5 @@ As of 6/22/2021, what this program allows you to do is simulate creating the gen
 [Nick Farrow](https://nickfarrow.com/Cryptography-in-Bitcoin-with-C/)\
 [bitcoinbook](https://cypherpunks-core.github.io/bitcoinbook/)\
 [ProgrammerSought/Bitcoin0.16](https://www.programmersought.com/article/19961775751/)\
-[StackOverflow Hex Function](https://stackoverflow.com/questions/3381614/c-convert-string-to-hexadecimal-and-vice-versa)
+[StackOverflow Hex Function](https://stackoverflow.com/questions/3381614/c-convert-string-to-hexadecimal-and-vice-versa)\
+[Learn Me a Bitcoin](https://learnmeabitcoin.com/)
