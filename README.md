@@ -4,7 +4,16 @@ Copyright &copy; 2021 devin177
 Hello! This is my way of trying to learn how blockchains and cryptocurrencies work.
 
 ## 8/10/2021
+Blocks are now written to disk/block*.dat files. Need to implement transactions, but right now the initialization of the first block happens and gives 50 devcoins to a temporary default address. Big progress today.
 
+- Compile with `make`
+- Run with `./wc`
+- You can look at "block1.dat" as well as subsequent blocks when you `addblock`
+  - These have the binary data about the block
+- `addblock` to add a block (this is from last time)
+- `generatewallet` to generate a wallet file
+  - The convention for this is in WALLET.md
+- `hashseed <even-number-of-chars-seed>` will generate the public key from that seed.
 
 I have been thinking about the complexity of creating such a project from scratch with such limited knowledge about file transfer and what not. I think the most reasonable and doable course of action is to begin with this not being a peer to peer program, but with a central node in the beginning. So, a client-server structure. This is, of course, thinking for after I finish even the basic functionality part.
 
@@ -12,7 +21,7 @@ I have been thinking about the complexity of creating such a project from scratc
 You can now verify your private key.
 
 - Compile with `make`
-- Run with `./node`
+- Run with `./wc`
 - `addblock` to add a block (this is from last time)
 - `generatewallet` to generate a wallet file
   - The convention for this is in WALLET.md
