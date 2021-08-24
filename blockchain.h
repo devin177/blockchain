@@ -10,6 +10,7 @@
 #include "block.h"
 #include "hash.h"
 #include "transaction.h"
+#include "constants.h"
 
 using namespace std;
 
@@ -34,7 +35,7 @@ class Blockchain {
   void AddBlock(string prevhash);
 
   // Write to memory the latest block
-  void WriteBlock(int index, int nonce) const;
+  void WriteBlock(int index, uint32_t nonce) const;
  private:
   // The blockchain itself is a vector of blocks. Will change this to something
   // to do with reading the "block.dat" files
@@ -58,7 +59,7 @@ void Blockchain::AddBlock(string prevhash) {
   }*/
 
   // The nonce and hash of the current block
-  int nonce = ProofOfWork(index, prevhash, newTx, to_string(time), nbits);
+  uint32_t nonce = ProofOfWork(index, prevhash, newTx, to_string(time), nbits);
   BChain.push_back(make_unique<Block>(index, prevhash, newTx, stoi(to_string(time)), nbits, nonce));
   WriteBlock(GetSize(), nonce);
   newTx.clear();
@@ -76,7 +77,7 @@ Blockchain::Blockchain() {
   picosha2::hash256_hex_string(string("0"), prevhash);
 
   time_t time = std::time(nullptr);
-  int nonce = ProofOfWork(0, prevhash, newTx, (to_string(time)), nbits);
+  uint32_t nonce = ProofOfWork(0, prevhash, newTx, (to_string(time)), nbits);
   BChain.push_back(make_unique<Block>(0, prevhash, newTx, stoi(to_string(time)), 2, nonce));
   // Write the newly created block to memory
   WriteBlock(GetSize(), nonce);
@@ -88,25 +89,21 @@ Blockchain::Blockchain() {
 // Will be called block[index].dat
 /* Format of Block ~ https://learnmeabitcoin.com/technical/blkdat
 */
-void Blockchain::WriteBlock(int index, int nonce) const {
+void Blockchain::WriteBlock(int index, uint32_t nonce) const {
   string filename = "block";
   filename += to_string(index) += ".dat";
   ofstream block_file;
   block_file.open(filename, ios::out | ios::binary);
   if (!block_file) {
-    cout << "error" << endl;
+    cout << "File Error" << endl;
     return;
   }
 
   // Setting up places in memory for the parts of our block
   // Start of block data
-  char magic_nums[4];
-  magic_nums[0] = 0xf9;
-  magic_nums[1] = 0xbe;
-  magic_nums[2] = 0xb4;
-  magic_nums[3] = 0xd9;
-  block_file.write(magic_nums, 4);
+  block_file.write((const char*)magic, 4);
 
+  // To Do
   // block_file.write(size, however big the size of the incoming block is)
 
   // 64 byte Previous Hash
@@ -115,6 +112,7 @@ void Blockchain::WriteBlock(int index, int nonce) const {
   block_file.write(prev_buff, 64);
 
   // Merkle Root TBD size. I'm making my own convention
+  // To Do
 
   // 4 byte time
   uint32_t time = GetLastBlock().GetTime();
@@ -126,7 +124,7 @@ void Blockchain::WriteBlock(int index, int nonce) const {
   // 4 bytes of nonce
   block_file.write((char*)&nonce, 4);
 
-  // 2 byte number of transactions
+  // 2 byte TX count
   int size = newTx.size();
   block_file.write((char*)&size, 2);
 
@@ -135,7 +133,9 @@ void Blockchain::WriteBlock(int index, int nonce) const {
     // 2 byte number of inputs
     int num_in = newTx[i].vin.size();
     block_file.write((char*)&num_in, 2);
+
     // Input, not there temporarily
+    // To Do
 
     // 2 byte number of outputs
     int num_out = newTx[i].vout.size();
@@ -144,13 +144,27 @@ void Blockchain::WriteBlock(int index, int nonce) const {
     // Outputs
     // for each output
     // 8 byte amount of devcoin
-    int64_t value = newTx[i].vout[i].Amount;
-    block_file.write((char*)&value, 8);
-    // 34 byte address
-    string address = newTx[i].vout[i].Address;
-    const char* address_buff = address.c_str();
-    block_file.write(address_buff, 34);
+    for (unsigned int o_index = 0; o_index < newTx[i].vout.size(); ++o_index) {
+      int64_t value = newTx[i].vout[o_index].Amount;
+      block_file.write((char*)&value, 8);
+      // 34 byte address
+      string address = newTx[i].vout[i].Address;
+      const char* address_buff = address.c_str();
+      block_file.write(address_buff, 34);
+    }
   }
+
+  printf("prev_hash: ");
+  for (int i = 0; i < 64; ++i) {
+    printf("%c", prev_hash[i]);
+  }
+  printf("\n");
+  printf("time: %u\n", time);
+  printf("nbits: %u\n", nbits);
+  printf("nonce: %u\n", nonce);
+  printf("size: %u\n", size);
+  // cout << "size:";
+  // cout << size << endl;
 
   block_file.close();
   // ifstream read_file;

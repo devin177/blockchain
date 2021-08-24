@@ -8,17 +8,16 @@ using namespace std;
 // individual inputs
 class TxIn {
  public:
-  // Identify the output we are trying to spend
+  // Identify the transaction, and index of Tx we are spending
   string TxId;
   uint32_t index;
 
   // signature script that will satisfy pubkey script
-
+  // just put the address back in for now
+  // To Do
 };
 
 // individual outputs
-// This is the record that makes up people's wallets
-// Transactions are stored in the UTXO set?
 class TxOut {
  public:
   TxOut(int64_t amount, string address): Amount(amount),
@@ -31,8 +30,10 @@ class TxOut {
 
   // Conditional pubkey script
   // For now, I will just put a address that I will check is the same
+  // To Do
   string Address;
   void spend() {Spent = true;}
+
  private:
  // This should be some kind of dirty bit on the block.dat file
   bool Spent = false;

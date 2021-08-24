@@ -15,6 +15,7 @@
 #include <openssl/ripemd.h>
 #include "base58.h"
 #include "hex.h"
+#include "constants.h"
 
 // calling an unsigned char a byte
 typedef unsigned char byte;
@@ -110,9 +111,96 @@ void GenerateWalletFile() {
   fclose(wallet_file);
 }
 
-// Parse through the blockchain and update your wallet
-void UpdateWallet() {
-  ;
+// Parse through a single block, and find transactions for your wallet
+void ParseBlock(string block_name, string pub_address) {
+  // Open block file to begin reading
+  fstream block_file;
+  block_file.open(block_name, fstream::in);
+  if (!block_file.is_open()) {
+    cout << "File error" << endl;
+    return;
+  }
+
+  // If i were to keep this byte stream reading on all the time
+  // I could probably do a while loop looking for the 4 magic bytes?
+
+  // First four bytes SHOULD be 0xf94bebd9
+  byte message_head[4];
+  block_file.read((char*)message_head, 4);
+  for (int i = 0; i < 4; ++i) {
+    printf("%02x", message_head[i]);
+  }
+  cout << endl;
+  // Error check for magic bytes
+  if (memcmp(magic, message_head, 4)) {
+    cout << "Error with beginning of block" << endl;
+    return;
+  }
+
+  // next 64 bytes is the hash of the previous block
+  byte block_hash[64];
+  block_file.read((char*)block_hash, 64);
+  for (int i = 0; i < 64; ++i) {
+    printf("%c", block_hash[i]);
+  }
+  cout << endl;
+
+  uint32_t time[4];
+  block_file.read((char*)time, 4);
+  for (int i = 0; i < 1; ++i) {
+    printf("%u", time[i]);
+  }
+  cout << endl;
+
+
+  uint32_t nbits[4];
+  block_file.read((char*)nbits, 4);
+  for (int i = 0; i < 4; ++i) {
+    printf("%u", nbits[i]);
+  }
+    cout << endl;
+
+
+  uint32_t nonce[4];
+  block_file.read((char*)nonce, 4);
+  for (int i = 0; i < 4; ++i) {
+    printf("%i", nonce[i]);
+  }
+    cout << endl;
+
+
+  // Number of transactions
+  int size[2];
+  block_file.read((char*)size, 2);
+  for (int i = 0; i < 2; ++i) {
+    printf("%i", size[i]);
+  }
+    cout << endl;
+
+
+  // start of inputs
+  int num_in[2];
+  block_file.read((char*)num_in, 2);
+  for (int i = 0; i < 2; ++i) {
+    printf("%i", num_in[i]);
+  }
+    cout << endl;
+
+
+  // To Do
+  // Loop similarly to blockchain writeblock, by transaction, then by io
+
+  // To Do
+  // inputs
+
+  // start of outputs
+  int num_out[2];
+  block_file.read((char*)num_out, 2);
+  for (int i = 0; i < 2; ++i) {
+    printf("%i", num_out[i]);
+  }
+    cout << endl;
+
 }
 
 // Given a seeded private key, find its public address

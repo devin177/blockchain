@@ -24,6 +24,9 @@ int main () {
     } else if (!cmd_buff.compare("hashseed")){
       line_stream >> cmd_buff;
       HashPrivSeed(cmd_buff);
+    } else if (!cmd_buff.compare("parseblock")) {
+      line_stream >> cmd_buff;
+      ParseBlock(cmd_buff, "1EDPeMx726w18mj44m1ehoneySLCr4SFVR");
     } else {
       cout << "Closing program" << endl;
       break;

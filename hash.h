@@ -9,7 +9,7 @@
 using namespace std;
 
 // Return a nonce that works with the given data to find a suitable hash
-int ProofOfWork(int index, string prevhash,
+uint32_t ProofOfWork(int index, string prevhash,
   vector<Transaction> tx, string time, uint32_t nbits) {
   // Hash the header with a nonces until one satisfies the nbits req
   stringstream threshold;

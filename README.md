@@ -3,6 +3,19 @@ Copyright &copy; 2021 devin177
 
 Hello! This is my way of trying to learn how blockchains and cryptocurrencies work.
 
+## 8/23/2021
+After working today, what did I get done? Not much. `wallet.h` 's ParseBlock is where I did most of the work. I adjusted some definitions of variables like nonce being an unsigned int, as well as define some constants in `constants.h`. Working on reading back information from the block*.dat files, and need to learn more about how integers are stored vs chars (4 byte vs 1 byte?). Just going to commit all at once.
+
+Took a long break haha. 
+- Today, I will try to implement a way of actually reading the binary data from block*.dat files.
+- I will also need to implement transactions beyond the coinbase transaction. This also means I will need to implement something to do with the signature script to prevent spending from an UTXO that is NOT yours.
+- Server? I wonder if I could host something like this on google firebase? Not exactly sure how hosting C++ stuff works, but I'll figure this out as I go.
+
+- i mentioned a client server system the other day. Having questions about how that would work because it seems that the server would end up doing the computing? for finding hashes? just something I'm thinking about.
+
+- Added "To Do" tag to things in code I need to implement
+- Have to make an UTXO (unspent tx output) set to track all available money
+
 ## 8/10/2021
 Blocks are now written to disk/block*.dat files. Need to implement transactions, but right now the initialization of the first block happens and gives 50 devcoins to a temporary default address. Big progress today.
 
